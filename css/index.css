@@ -41,7 +41,12 @@ position: relative;
 padding: 20px 20px;
 color: #fff;
 }
-}.parallax-window {
+body {
+	top: 50px;
+	position: relative;
+}
+}
+.parallax-window {
 min-height: 600px;
 background: transparent;
 }

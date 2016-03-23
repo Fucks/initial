@@ -3,7 +3,7 @@
 			font-family: 'Roboto', sans-serif;
 		}
 		.bg-green {
-		background-color: #80CBC4;
+		background-color: #009688;
 		padding: 20px 0;
 		color: #fff;
 		}
@@ -24,12 +24,7 @@
 			font-weight: 700;
 			text-decoration: none;
 		}
-		.post-nav {
-			bottom: 82px;
-			position: relative;
-		}
-		@media screen and (max-width: 768px) {
-			.post-nav {
-			bottom: 0;
-		}
+		.thumbnail h3 {
+			padding: 0 15px;
+			color: #283593;
 		}

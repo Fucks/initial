@@ -4,7 +4,8 @@
 		}
 		.bg-green {
 		background-color: #009688;
-		padding: 20px 0;
+		padding: 20px 20px;
+		border-radius: 3px;
 		color: #fff;
 		}
 		.form-control {
@@ -27,4 +28,18 @@
 		.thumbnail h3 {
 			padding: 0 15px;
 			color: #283593;
+		}
+		.up-form {
+			bottom: 280px;
+			position: relative;
+		}
+		@media screen and (max-width: 768px) {
+			.up-form {
+			bottom: 0;
+			position: relative;
+		}
+		.bg-green {
+		padding: 20px 20px;
+		color: #fff;
+		}
 		}

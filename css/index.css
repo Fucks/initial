@@ -1,0 +1,35 @@
+		<style>
+		body {
+			font-family: 'Roboto', sans-serif;
+		}
+		.bg-green {
+		background-color: #80CBC4;
+		padding: 20px 0;
+		color: #fff;
+		}
+		.form-control {
+		border-radius: 0 !important;
+		}
+		.thumbnail {
+		padding: 0 !important;
+		border-radius: 2px;
+		transition: all 0.2s ease-in-out;
+		}
+		.thumbnail:hover {
+		box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+		}
+		.details > a, .details.fa {
+			color: #009688;
+			font-size: 16px;
+			font-weight: 700;
+			text-decoration: none;
+		}
+		.post-nav {
+			bottom: 82px;
+			position: relative;
+		}
+		@media screen and (max-width: 768px) {
+			.post-nav {
+			bottom: 0;
+		}
+		}

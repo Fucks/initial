@@ -3,22 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-function AbstractController($rootScope, $scope, $state, $stateParams, $location, $mdToast) {
-
-    $rootScope.goToBack = function (state) {
-        //getting server URL
-        var serverUrl = $location.absUrl().split($location.absUrl().split("/")[$location.absUrl().split("/").length - 2])[0];
-
-        //retira a ultima barra '/'
-        serverUrl = serverUrl.slice(0, serverUrl.length - 1);
-
-        if (state[0] == '/') {
-            window.location.href = serverUrl + state;
-        } else {
-            $state.go(state);
-        }
-
-    };
+function AbstractController($rootScope, $scope, $state, $stateParams, $location) {
 
     $scope.$on('$stateChangeSuccess', function (event, toState, toParams, fromState, fromParams) {
         $rootScope.title = toState.title;
@@ -27,19 +12,11 @@ function AbstractController($rootScope, $scope, $state, $stateParams, $location,
         $scope.init(toState, toParams);
     });
 
-    $scope.showToast = function (msg, delay) {
-        $mdToast.show(
-                $mdToast.simple()
-                .content(msg)
-                .position('top right')
-                .hideDelay(delay)
-                );
+    $scope.showMessage = function (message, timeout) {
+
+        alertify.log(message, timeout);
+
     }
-    
-    //ativa js's
-    $(document).ready(function () {
-        $('.tooltipped').tooltip({delay: 50});
-    });
 }
 ;
 

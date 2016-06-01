@@ -36,18 +36,11 @@
         <!-- Controllers -->
         <script src="<c:url value="/views/modules/app/controller/home-controller.js" />" ></script>
         <script src="<c:url value="/views/modules/app/controller/user-controller.js" />" ></script>
-        <script src="<c:url value="/views/modules/app/controller/cad-cheque-controller.js" />" ></script>
-        <script src="<c:url value="/views/modules/app/controller/cheque-controller.js" />" ></script>
-        <script src="<c:url value="/views/modules/app/controller/cliente-controller.js" />" ></script>
-        <script src="<c:url value="/views/modules/app/controller/banco-controller.js" />" ></script>
-        <script src="<c:url value="/views/modules/app/controller/popup/cadastro-cliente-controller.js" />" ></script>
-        <script src="<c:url value="/views/modules/app/controller/popup/cadastro-banco-controller.js" />" ></script>
+        <script src="<c:url value="/views/modules/app/controller/profile-controller.js" />" ></script>
 
         <!-- Services -->
         <script type="text/javascript"  src="<c:url value="/views/modules/app/service/users-service.js" />" ></script>
-        <script type="text/javascript"  src="<c:url value="/views/modules/app/service/cliente-service.js" />" ></script>
-        <script type="text/javascript"  src="<c:url value="/views/modules/app/service/banco-service.js" />" ></script>
-        <script type="text/javascript"  src="<c:url value="/views/modules/app/service/cheque-service.js" />" ></script>
+        <script type="text/javascript"  src="<c:url value="/views/modules/app/service/image-service.js" />" ></script>
 
     </body>
 </html>

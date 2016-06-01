@@ -12,74 +12,22 @@
 <c:url value="#home" var="homeUrl" />
 <div class="nav-wrapper" ng-cloak ng-controller="HeaderController as controller">
     <!-- Navigation Bar-->
-    <header id="topnav">
-        <div class="topbar-main">
-            <div class="container" style="height: 60px;">
+    <header class="header-user-dropdown">
 
-                <!-- Logo container-->
-                <div class="logo">
-                    <a href="${homeUrl}" class="logo"><span style="color: #212121;"><b>GOD</b></span><span>Cheque</span></a>
-                </div>
-                <!-- End Logo container-->
+        <div class="header-limiter">
+            <h1><a href="#/"><span>Credenciamento</span></a></h1>
 
-                <div class="menu-extras">
+            <div class="header-user-menu">
+                <h4>{{controller.currentUser.fullName}}</h4>
+                <img ng-src="{{'imagem/files/' + controller.currentUser.id}}" alt="User Image"/>
 
-                    <!--                        <ul class="nav navbar-nav navbar-right pull-right">
-                                                <li>
-                                                    <form role="search" class="navbar-left app-search pull-left hidden-xs">
-                                                         <input type="text" placeholder="Search..." class="form-control">
-                                                         <a href=""><i class="fa fa-search"></i></a>
-                                                    </form>
-                                                </li>
-                                            </ul>-->
-                </div>
-
-                <div style="margin-top: 30px; float: right; color: #fff;">
-                    <span>Bem-vindo <b>{{controller.currentUser.firstName}}.</b></span> 
-                </div>
-
-            </div>
-        </div>
-        <!-- End topbar -->
-
-
-        <!-- Navbar Start -->
-        <div class="navbar-custom">
-            <div class="container">
-                <div id="navigation">
-                    <!-- Navigation Menu-->
-                    <ul class="navigation-menu">
-                        <li class="submenu">
-                            <a href="${homeUrl}"><i class="material-icons">home</i>Ínicio</a>
-                        </li>
-                        <li class="submenu">
-                            <a href="#cad-cheque"><i class="material-icons">add_circle</i>Novo cheque</a>
-                        </li>
-                        <li class="has-submenu">
-                            <a href="#"><i class="material-icons">thumbs_up_down</i>Gerenciar</a>
-                            <ul class="submenu">
-                                <li><a href="#gerenciar/cheques">Cheques</a></li>
-                                <li><a href="#gerenciar/clientes">Clientes</a></li>
-                                <li><a href="#gerenciar/bancos">Bancos</a></li>
-                            </ul>
-                        </li>
-                        <li class="submenu">
-                            <a href="#"><i class="material-icons">find_in_page</i>Relatórios</a>
-                        </li>
-                        <li class="submenu active">
-                            <a href="#user-module"><i class="material-icons">supervisor_account</i>Usuários</a>
-                        </li>
-                        <li class="submenu active">
-                            <a href="${logoutUrl}"><i class="material-icons">exit_to_app</i>Sair</a>
-                        </li>
-                    </ul>
-                    <!-- End navigation menu        -->
-                </div>
+                <ul>
+                    <li><a href="#profile">Perfil</a></li>
+                    <li><a href="${logoutUrl}" class="highlight">Sair</a></li>
+                </ul>
             </div>
         </div>
     </header>
-    <!-- End Navigation Bar-->
-
 </div>
 <style type="text/css">
     .loader-background{

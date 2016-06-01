@@ -1,0 +1,162 @@
+.header-user-dropdown{
+    box-sizing:border-box;
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    height: 80px;
+    background-color: #fff;
+}
+
+.header-user-dropdown .header-limiter {
+    max-width: 1200px;
+    text-align: center;
+    margin: 0 auto;
+}
+
+/* Logo */
+
+.header-user-dropdown .header-limiter h1{
+    float: left;
+    padding: 20px 40px;
+    font: normal 28px Cookie, Arial, Helvetica, sans-serif;
+    line-height: 40px;
+    margin:0;
+}
+
+.header-user-dropdown .header-limiter h1 span {
+    color: #5383d3;
+}
+
+/* The header links */
+
+.header-user-dropdown .header-limiter a {
+    color: #5c616a;
+    text-decoration: none;
+}
+
+.header-user-dropdown .header-limiter nav{
+    font:16px Arial, Helvetica, sans-serif;
+    line-height: 40px;
+    float: left;
+    margin: 0 0 0 60px;
+    padding: 0;
+}
+
+.header-user-dropdown .header-limiter nav a{
+    font-size: 14px;
+    display: inline-block;
+    padding: 0 12px;
+    opacity: 0.9;
+    position: relative;
+    text-decoration:none;
+    line-height: 1;
+}
+
+.header-user-dropdown .header-limiter nav a:hover {
+    opacity: 1;
+}
+
+/* The "new" badge */
+
+.header-user-dropdown .header-limiter nav a span {
+    position: absolute;
+    top: -12px;
+    border-radius: 2px;
+    background-color: #2A6A92;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    height: 13px;
+    font-size: 11px;
+    right: -15px;
+    padding: 1px 4px 0;
+}
+
+/* The user menu */
+
+.header-user-dropdown .header-limiter .header-user-menu{
+    position: relative;
+    float:right;
+    height: 80px;
+    background-color: #fff;
+    border-radius:2px;
+}
+.header-user-dropdown .header-limiter .header-user-menu h4{
+    vertical-align: middle;
+    display: inline-block;
+    margin: 3px 8px 0 0;
+}
+.header-user-dropdown .header-limiter .header-user-menu h4:before{
+    content:'';
+    width:0;
+    height:0;
+    top: 13px;
+    left: -20px;
+    position:relative;
+    border:5px solid transparent;
+    border-top-color:#2A6A92;
+}
+
+.header-user-dropdown .header-limiter .header-user-menu:before{
+
+}
+
+.header-user-dropdown .header-limiter .header-user-menu ul{
+    display: none;
+    z-index: 2000;
+    font: bold 13px Arial, Helvetica, sans-serif;
+    background-color: inherit;
+    list-style: none;
+    position: absolute;
+    text-align: left;
+    width: 100%;
+    top: 80px;
+    right: 0;
+    padding: 10px;
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    box-sizing: border-box;
+}
+
+.header-user-dropdown .header-user-menu:active ul,
+.header-user-dropdown .header-user-menu:hover ul,
+.header-user-dropdown .header-user-menu.show ul{
+    display:block;
+}
+
+.header-user-dropdown .header-user-menu ul li{
+    padding:10px;
+}
+
+.header-user-dropdown .header-user-menu ul li a:hover{
+    opacity:0.9;
+}
+
+.header-user-dropdown .header-user-menu ul li a.highlight{
+    color:#e9ac09;
+}
+
+.header-user-dropdown .header-user-menu img{
+    height: 80px;
+    right:10px;
+}
+
+
+@media all and (max-width: 800px) {
+
+    .header-user-dropdown .header-limiter h1 {
+        font-size: 24px;
+    }
+
+    .header-user-dropdown .header-limiter nav a {
+        padding: 0 5px;
+    }
+
+    .header-user-dropdown .header-limiter nav {
+        margin-left: 20px;
+    }
+
+}
+
+@media all and (max-width: 600px) {
+
+    .header-user-dropdown .header-limiter nav {
+        display: none;
+    }
+
+}

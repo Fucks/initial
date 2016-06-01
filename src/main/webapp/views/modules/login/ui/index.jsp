@@ -9,19 +9,24 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         <!-- Theme -->
-        <link href="<c:url value="resource/theme/css/bootstrap.min.css"/>" rel="stylesheet" type="text/css">
-        <link href="<c:url value="resource/theme/css/core.css"/>" rel="stylesheet" type="text/css">
-        <link href="<c:url value="resource/theme/css/components.css"/>" rel="stylesheet" type="text/css">
-        <link href="<c:url value="resource/theme/css/icons.css"/>" rel="stylesheet" type="text/css">
-        <link href="<c:url value="resource/theme/css/pages.css"/>" rel="stylesheet" type="text/css">
-        <link href="<c:url value="resource/theme/css/menu.css"/>" rel="stylesheet" type="text/css">
-        <link href="<c:url value="resource/theme/css/responsive.css"/>" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="<c:url value="resource/theme/assets/demo.css" />">
+        <link rel="stylesheet" href="<c:url value="resource/theme/login/login.css"/>">
+        <link rel="stylesheet" href="<c:url value="resource/theme/css/bootstrap.min.css" />" >
+        <link rel="stylesheet" href="<c:url value="resource/theme/assets/header-basic-light.css" />" >
+        <link rel="stylesheet" href="<c:url value="resource/library/alertfy/alertify.core.css" />" >
+        <link rel="stylesheet" href="<c:url value="resource/library/alertfy/alertify.default.css" />" >
+        <link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
 
-        <link rel="stylesheet" href="<c:url value="/resource/library/angular-material/angular-material.min.css" />">
-
-        <title>Entre!</title>
+        <title>Login</title>
     </head>
     <body>
+        <header class="header-basic-light">
+
+            <div class="header-limiter">
+                <h1><a href="#"><span>Companylogo</span></a></h1>
+            </div>
+
+        </header>
 
         <div ui-view></div>
 
@@ -38,28 +43,9 @@
         <script src="<c:url value="/resource/js/angular/angular-sanitize.min.js" />"></script>
         <script src="<c:url value="/resource/js/angular/angular-touch.min.js" />"></script>
 
-        <!-- Material -->
-        <script src="<c:url value="/resource/library/angular-material/angular-material.min.js" />"></script>
-
         <!-- Directives -->
         <script src="<c:url value="/resource/js/directives/angular-http-loader.js" />" ></script>
-
-        <!-- theme -->
-        <script src="<c:url value="resource/theme/js/jquery.min.js"/>"></script>
-        <script src="<c:url value="resource/theme/js/bootstrap.min.js"/>"></script>
-        <script src="<c:url value="resource/theme/js/detect.js"/>"></script>
-        <script src="<c:url value="resource/theme/js/fastclick.js"/>"></script>
-        <script src="<c:url value="resource/theme/js/jquery.slimscroll.js"/>"></script>
-        <script src="<c:url value="resource/theme/js/jquery.blockUI.js"/>"></script>
-        <script src="<c:url value="resource/theme/js/waves.js"/>"></script>
-        <script src="<c:url value="resource/theme/js/wow.min.js"/>"></script>
-        <script src="<c:url value="resource/theme/js/jquery.nicescroll.js"/>"></script>
-        <script src="<c:url value="resource/theme/js/jquery.scrollTo.min.js"/>"></script>
-        <script src="<c:url value="resource/theme/js/jquery.peity.min.js"/>"></script>
-        <script src="<c:url value="resource/theme/js/jquery.sparkline.min.js"/>"></script>
-        <script src="<c:url value="resource/theme/js/jquery.dashboard_3.js"/>"></script>
-        <script src="<c:url value="resource/theme/js/jquery.core.js"/>"></script>
-        <script src="<c:url value="resource/theme/js/jquery.app.js"/>"></script>
+        <script src="<c:url value="/resource/library/alertfy/alertify.min.js" />" ></script>
 
 
         <script src="<c:url value="/views/modules/abstract-controller.js" />" ></script>

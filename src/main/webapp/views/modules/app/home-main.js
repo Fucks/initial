@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module("System", ['ngAnimate', 'ngCookies', 'ngTouch',
-    'ngSanitize', 'ngMaterial', 'directive.loading', 'ui.router', 
-    'ui.bootstrap','fiestah.money', 'mdr.datepicker', 'ngDialog'])
+    'ngSanitize', 'ngMaterial', 'directive.loading', 'ui.router', 'ui.tree',
+    'camera', 'ui.bootstrap', 'fiestah.money', 'mdr.datepicker', 'ngDialog'])
 
         .config(function ($stateProvider, $urlRouterProvider) {
 
@@ -16,18 +16,46 @@ angular.module("System", ['ngAnimate', 'ngCookies', 'ngTouch',
                 title: 'Bem vindo',
                 controller: 'HomeController',
                 controllerAs: 'controller'
+            }).state('profile', {
+                url: "/profile",
+                templateUrl: "views/modules/app/ui/home/perfil.jsp",
+                title: 'Perfil pessoal',
+                controller: 'HomeController',
+                controllerAs: 'controller'
             });
 
+            //perfil de acesso
+            $stateProvider.state('profiles', {
+                url: "/perfil-de-acesso",
+                templateUrl: "views/modules/app/ui/profile/profile-list.jsp",
+                title: 'Gerenciar Perfis de Acesso',
+                controller: 'ProfileController',
+                controllerAs: 'controller'
+            }).state('profile-insert', {
+                url: "/perfil-de-acesso/novo",
+                templateUrl: 'views/modules/app/ui/profile/profile-form.jsp',
+                title: 'Novo Perfil de Acesso',
+                controller: 'ProfileController',
+                controllerAs: 'controller'
+            })
+            .state('profile-edit', {
+                url: "/perfil-de-acesso/editar/:id",
+                templateUrl: 'views/modules/app/ui/profile/profile-form.jsp',
+                title: 'Editar Perfil de Acesso',
+                controller: 'ProfileController',
+                controllerAs: 'controller'
+            });
+            
             //usuarios
             $stateProvider.state('users', {
-                url: "/user-module",
+                url: "/usuarios",
                 templateUrl: "views/modules/app/ui/user/user-list.jsp",
                 title: 'Gerenciar usuários',
                 navigation: '/home',
                 controller: 'UserController',
                 controllerAs: 'controller'
             }).state('users-insert', {
-                url: "/novo",
+                url: "/usuarios/novo",
                 templateUrl: 'views/modules/app/ui/user/user-form.jsp',
                 title: 'Novo Usuário',
                 navigation: 'users',
@@ -35,82 +63,13 @@ angular.module("System", ['ngAnimate', 'ngCookies', 'ngTouch',
                 controllerAs: 'controller'
             })
             .state('users-edit', {
-                url: "/editar/:id",
+                url: "/usuarios/editar/:id",
                 templateUrl: 'views/modules/app/ui/user/user-form.jsp',
                 title: 'Editar usuário',
                 navigation: 'users',
                 controller: 'UserController',
                 controllerAs: 'controller'
             });
-
-            //cheques
-            $stateProvider.state('cad-cheque', {
-                url: "/cad-cheque",
-                templateUrl: "views/modules/app/ui/cad_cheque/cad_cheque.jsp",
-                title: 'Novo Cheque',
-                controller: 'CadChequeController',
-                controllerAs: 'controller'
-            });
-            
-            //gerenciar-clientes
-            $stateProvider.state('clientes', {
-                url: "/gerenciar/clientes",
-                templateUrl: "views/modules/app/ui/cliente/cliente-list.jsp",
-                title: 'Clientes',
-                controller: 'ClienteController',
-                controllerAs: 'controller'
-            })
-            .state('cliente-insert', {
-                url: "/gerenciar/clientes/novo",
-                templateUrl: 'views/modules/app/ui/cliente/cliente-form.jsp',
-                title: 'Novo Cliente',
-                navigation: 'users',
-                controller: 'ClienteController',
-                controllerAs: 'controller'
-            })
-            .state('cliente-edit', {
-                url: "/gerenciar/clientes/editar/:id",
-                templateUrl: 'views/modules/app/ui/cliente/cliente-form.jsp',
-                title: 'Editar cliente',
-                navigation: 'users',
-                controller: 'ClienteController',
-                controllerAs: 'controller'
-            });
-            
-            //gerenciar-bancos
-            $stateProvider.state('bancos', {
-                url: "/gerenciar/bancos",
-                templateUrl: "views/modules/app/ui/banco/banco-list.jsp",
-                title: 'Bancos',
-                controller: 'BancoController',
-                controllerAs: 'controller'
-            })
-            .state('banco-insert', {
-                url: "/gerenciar/bancos/novo",
-                templateUrl: 'views/modules/app/ui/banco/banco-form.jsp',
-                title: 'Novo banco',
-                navigation: 'users',
-                controller: 'BancoController',
-                controllerAs: 'controller'
-            })
-            .state('banco-edit', {
-                url: "/gerenciar/bancos/editar/:id",
-                templateUrl: 'views/modules/app/ui/banco/banco-form.jsp',
-                title: 'Editar banco',
-                navigation: 'users',
-                controller: 'BancoController',
-                controllerAs: 'controller'
-            });
-            
-            //gerenciar-cheques
-            $stateProvider.state('cheques', {
-                url: "/gerenciar/cheques",
-                templateUrl: "views/modules/app/ui/cheque/cheque-list.jsp",
-                title: 'Cheques',
-                controller: 'ChequeController',
-                controllerAs: 'controller'
-            });
-
 
         })
         .run(function ($rootScope, $state, $stateParams) {
@@ -124,7 +83,9 @@ angular.module("System", ['ngAnimate', 'ngCookies', 'ngTouch',
         });
 
 angular.module("System")
-        .controller("HeaderController", function ($rootScope, $interval, dateFilter, userService) {
+        .controller("HeaderController", function ($rootScope, $scope, $injector, userService, imageService) {
+
+            $injector.invoke(AbstractController, this, {$scope: $scope});
 
             var vm = this;
 
@@ -132,15 +93,20 @@ angular.module("System")
             vm.currentUser = {};
             vm.title = $rootScope.title;
             vm.navigation = $rootScope.navigation;
-            vm.currentTime = new Date();
-            vm.dateFilter = dateFilter;
+            vm.picture;
 
             //methods
-            vm.loadUser = loadUser();
+            vm.loadUser = loadUser;
+            vm.updateUser = updateUser;
+            vm.alterPhoto = alterPhoto;
+            vm.setPhoto = setPhoto;
+            vm.getSnapshot = getSnapshot;
+            vm.dataURItoBlob = dataURItoBlob;
 
-            var updateTime = $interval(function () {
-                vm.currentTime = new Date();
-            }, 1000);
+            $scope.init = function (toState, toParams) {
+                vm.loadUser();
+            };
+
             /**
              * 
              * @returns {undefined}
@@ -149,6 +115,82 @@ angular.module("System")
                 userService.getAuthenticated().then(function (response) {
                     vm.currentUser = response;
                 });
+            }
+
+            /***
+             * 
+             * @returns {undefined}
+             */
+            function updateUser() {
+                userService.updateProfile(vm.currentUser).then(function (response) {
+                    if (vm.picture) {
+                        imageService.upload(dataURItoBlob(vm.picture), vm.currentUser.id).then(function (response) {
+                            if (response.code == 500)
+                                $scope.showMessage(response.msg, 5000);
+                        });
+                    }
+                    $scope.showMessage(response.msg, 5000);
+                    vm.loadUser();
+
+                })
+            }
+            ;
+
+            /**
+             * 
+             * @returns {undefined}
+             */
+            function alterPhoto() {
+                vm.picture = {};
+                $("#preview").css("display", "none");
+                $("#camera").attr("enable",true);
+                $("#camera").css("display", "block");
+            }
+            ;
+
+            /**
+             * 
+             * @returns {undefined}
+             */
+            function setPhoto() {
+                $("#preview").css("display", "block");
+                $("#camera").attr("enable",false);
+                $("#camera").css("display", "none");
+            }
+            ;
+
+            /**
+             * 
+             * @param {type} teste
+             * @returns {undefined}
+             */
+            function getSnapshot() {
+                vm.setPhoto();
+            }
+
+            /**
+             * 
+             * @param {type} dataURI
+             * @returns {Blob}
+             */
+            function dataURItoBlob(dataURI) {
+                // convert base64/URLEncoded data component to raw binary data held in a string
+                var byteString;
+                if (dataURI.split(',')[0].indexOf('base64') >= 0)
+                    byteString = atob(dataURI.split(',')[1]);
+                else
+                    byteString = unescape(dataURI.split(',')[1]);
+
+                // separate out the mime component
+                var mimeString = dataURI.split(',')[0].split(':')[1].split(';')[0];
+
+                // write the bytes of the string to a typed array
+                var ia = new Uint8Array(byteString.length);
+                for (var i = 0; i < byteString.length; i++) {
+                    ia[i] = byteString.charCodeAt(i);
+                }
+
+                return new Blob([ia], {type: mimeString});
             }
 
         });

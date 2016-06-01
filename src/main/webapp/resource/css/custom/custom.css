@@ -24,9 +24,62 @@ html, body
     -ms-user-select: none;
     -o-user-select: none;
     user-select: none;
-    background: #ebeff2;
+    background: rgba(118, 184, 82, 0.28);
     color: #797979;
 }
 .material-icons{
     font-size: 14px;
+}
+.menu{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+.menu-option{
+    height: 145px;
+    width: 100%;
+    border-radius: 3%;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+.btn-menu:hover, 
+.btn-menu:active,
+.btn-menu:focus,
+.btn-menu {
+    color: #9C9C9C;
+    outline: none !important;
+    background-color: #FFF;
+}
+.page-title {
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+.buttons-row{
+    text-align: right;
+}
+.alter-photo-btn{
+    top: -64px;
+    position: relative;
+    width: 100%;
+}
+#ng-camera-action{
+    position: relative;
+    top: -64px;
+    width: 100%;
+    color: #ffffff;
+    background-color: #222222;
+    border-color: #222222;
+    border: 1px solid transparent;
+    white-space: nowrap;
+    padding: 10px 18px;
+    font-size: 15px;
+    line-height: 1.42857143;
+}
+.breadcrumb{
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    background: #FFF;
+}
+.panel-default{
+    box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+}
+.tree-node.tree-node-content {
+    padding: 2px;
 }

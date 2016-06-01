@@ -30,7 +30,7 @@ function LoginController($rootScope, $injector, $scope, $state, $stateParams, $h
                 $scope.logout = $scope.getParameterByName("logout");
 
                 if ($scope.error != null) {
-                    Materialize.toast('Usuário e/ou senha incorretos!', 5000);
+                    $scope.showMessage('Usuário e/ou senha incorretos!','danger', 5000);
                 }
 
                 break;
@@ -39,7 +39,7 @@ function LoginController($rootScope, $injector, $scope, $state, $stateParams, $h
             {
                 $scope.currentRegisterer = {};
 
-                Materialize.showStaggeredList('#register');
+//                Materialize.showStaggeredList('#register');
 
                 break;
             }
@@ -63,7 +63,7 @@ function LoginController($rootScope, $injector, $scope, $state, $stateParams, $h
 
     $scope.registerer = function () {
         if (!$scope.registerForm.$valid) {
-            Materialize.toast("Preencha todos os campos", 5000);
+            $scope.showMessage("Preencha todos os campos","danger", 5000);
             return;
         }
         if ($scope.currentRegisterer.password == $scope.confirmPassword && $scope.confirmPassword != null) {
@@ -71,14 +71,14 @@ function LoginController($rootScope, $injector, $scope, $state, $stateParams, $h
             accountService.register($scope.currentRegisterer)
                     .then(function (response) {
                         response = JSON.parse(response);
-                        Materialize.toast(response.msg, 5000);
+//                        Materialize.toast(response.msg, 5000);
                         if (response.code == 200) {
                             $state.go($scope.LOGIN_STATE);
                         }
                     });
 
         } else {
-            Materialize.toast("Senha e confirmar senha devem ser iguais", 5000);
+            $scope.showMessage("Senha e confirmar senha devem ser iguais","danger", 5000);
         }
 
     }

@@ -62,12 +62,14 @@ angular.module("System").controller('UserController', function ($injector, $scop
             }
             case vm.DETAIL_STATE:
             {
+                vm.loadProfiles();
                 vm.findUser(params.id);
 
                 break;
             }
             case vm.EDIT_STATE:
             {
+                vm.loadProfiles();
                 vm.findUser(params.id);
 
                 break;
@@ -128,11 +130,11 @@ angular.module("System").controller('UserController', function ($injector, $scop
      */
     function loadUsers() {
         userService.showUsersByParams(vm.currentPage)
-                .then(function (response) {
-                    vm.currentPage = response;
-                    vm.currentPage.query = "";
-                    vm.currentPage.pageNumber = response.number + 1;
-                });
+            .then(function (response) {
+                vm.currentPage = response;
+                vm.currentPage.query = "";
+                vm.currentPage.pageNumber = response.number + 1;
+            });
 
     }
     ;
@@ -156,16 +158,9 @@ angular.module("System").controller('UserController', function ($injector, $scop
      */
     function findUser(id) {
         userService.findUser(id)
-                .then(function (response) {
-                    vm.currentEntity = response;
-
-                    userService.loadProfiles()
-                            .then(function (response) {
-                                vm.profiles = response;
-                                vm.profile = vm.currentEntity.profile;
-                            });
-
-                });
+            .then(function (response) {
+                vm.currentEntity = response;
+            });
     }
     ;
 
@@ -175,22 +170,21 @@ angular.module("System").controller('UserController', function ($injector, $scop
      */
     function insert() {
         if (!$scope.form.$valid) {
-//            $scope.showToast('Preencha todos os campo!', 5000);
+            $scope.showMessage('Preencha todos os campo!', 5000);
             return;
         }
         if (vm.currentEntity.password == vm.confirmPassword && vm.confirmPassword != null) {
 
             userService.register(vm.currentEntity)
                     .then(function (response) {
-                        response = JSON.parse(response);
-//                        $scope.showToast(response.msg, 5000);
+                        $scope.showMessage(response.msg, 5000);
                         if (response.code == 200) {
                             $state.go(vm.LIST_STATE);
                         }
                     });
 
         } else {
-//            $scope.showToast("Senha e confirmar senha devem ser iguais", 5000);
+            $scope.showMessage("Senha e confirmar senha devem ser iguais", 5000);
         }
 
     }
@@ -202,22 +196,21 @@ angular.module("System").controller('UserController', function ($injector, $scop
      */
     function update() {
         if (!$scope.form.$valid) {
-//            $scope.showToast("Preencha todos os campos", 5000);
+            $scope.showMessage("Preencha os campos corretamente", 5000);
             return;
         }
         if (vm.currentEntity.password == vm.confirmPassword && vm.confirmPassword != null) {
 
             userService.update(vm.currentEntity)
                     .then(function (response) {
-                        response = JSON.parse(response);
-//                        $scope.showToast(response.msg, 5000);
+                        $scope.showMessage(response.msg, 5000);
                         if (response.code == 200) {
                             $state.go(vm.LIST_STATE);
                         }
                     });
 
         } else {
-//            $scope.showToast("Senha e confirmar senha devem ser iguais", 5000);
+            $scope.showMessage("Senha e confirmar senha devem ser iguais", 5000);
         }
 
     }
@@ -229,11 +222,10 @@ angular.module("System").controller('UserController', function ($injector, $scop
      * @returns {undefined}
      */
     function remove() {
-        if(confirm("Deseja realmente excluir o usuário?")){
+        if (confirm("Deseja realmente excluir o usuário?")) {
             userService.deleteUser(vm.currentEntity)
                     .then(function (response) {
-                        response = JSON.parse(response);
-    //                    $scope.showToast(response.msg, 5000);
+                        $scope.showMessage(response.msg, 5000);
                         $state.go(vm.LIST_STATE);
                     });
         }

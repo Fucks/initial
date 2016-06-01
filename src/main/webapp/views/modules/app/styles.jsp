@@ -11,14 +11,12 @@
 <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+
 <!-- Theme -->
-<link href="<c:url value="resource/theme/css/bootstrap.min.css"/>" rel="stylesheet" type="text/css">
-<link href="<c:url value="resource/theme/css/core.css"/>" rel="stylesheet" type="text/css">
-<link href="<c:url value="resource/theme/css/components.css"/>" rel="stylesheet" type="text/css">
-<link href="<c:url value="resource/theme/css/icons.css"/>" rel="stylesheet" type="text/css">
-<link href="<c:url value="resource/theme/css/pages.css"/>" rel="stylesheet" type="text/css">
-<link href="<c:url value="resource/theme/css/menu.css"/>" rel="stylesheet" type="text/css">
-<link href="<c:url value="resource/theme/css/responsive.css"/>" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="<c:url value="resource/theme/assets/demo.css" />">
+<link rel="stylesheet" href="<c:url value="resource/theme/assets/header-user-dropdown.css" />" >
+<link rel="stylesheet" href="<c:url value="resource/theme/css/bootstrap.min.css" />" >
+<link href='http://fonts.googleapis.com/css?family=Cookie' rel='stylesheet' type='text/css'>
 
 <!-- libraries -->
 <link href="<c:url value="resource/library/datepicker/angular-bootstrap-datepicker.css"/>" rel="stylesheet" type="text/css">

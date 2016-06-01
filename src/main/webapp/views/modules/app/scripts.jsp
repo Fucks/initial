@@ -17,26 +17,13 @@
 
 <!-- Directives -->
 <script src="<c:url value="/resource/js/directives/angular-http-loader.js" />" ></script>
+<script src="<c:url value="/resource/js/directives/webcam.min.js" />" ></script>
+<script src="<c:url value="/resource/js/directives/angular-camera.min.js" />" ></script>
+<!--<script src="<c:url value="/resource/js/directives/ng-camera.js" />" ></script>-->
 <script src="<c:url value="/resource/library/ngDialog/ngDialog.js" />" ></script>
 <script src="<c:url value="/resource/library/alertfy/alertify.min.js" />" ></script>
 
 <!-- theme -->
-<script src="<c:url value="resource/theme/js/jquery.min.js"/>"></script>
-<script src="<c:url value="resource/theme/js/bootstrap.min.js"/>"></script>
-<script src="<c:url value="resource/theme/js/detect.js"/>"></script>
-<script src="<c:url value="resource/theme/js/fastclick.js"/>"></script>
-<script src="<c:url value="resource/theme/js/jquery.slimscroll.js"/>"></script>
-<script src="<c:url value="resource/theme/js/jquery.blockUI.js"/>"></script>
-<script src="<c:url value="resource/js/jquery/jquery.mask.min.js" />"></script>
-<script src="<c:url value="resource/theme/js/waves.js"/>"></script>
-<script src="<c:url value="resource/theme/js/wow.min.js"/>"></script>
-<script src="<c:url value="resource/theme/js/jquery.nicescroll.js"/>"></script>
-<script src="<c:url value="resource/theme/js/jquery.scrollTo.min.js"/>"></script>
-<script src="<c:url value="resource/theme/js/jquery.peity.min.js"/>"></script>
-<script src="<c:url value="resource/theme/js/jquery.sparkline.min.js"/>"></script>
-<script src="<c:url value="resource/theme/js/jquery.dashboard_3.js"/>"></script>
-<script src="<c:url value="resource/theme/js/jquery.core.js"/>"></script>
-<script src="<c:url value="resource/theme/js/jquery.app.js"/>"></script>
 
 <!-- libraries -->
 <script src="<c:url value="resource/library/datepicker/bootstrap-datepicker.min.js"/>"></script>
@@ -44,5 +31,6 @@
 <script src="<c:url value="resource/library/ngCurrency/angular-money-directive.min.js"/>"></script>
 <script src="<c:url value="resource/library/ui-bootstrap/ui-bootstrap-custom-1.1.2.min.js"/>"></script>
 <script src="<c:url value="resource/library/ui-bootstrap/ui-bootstrap-custom-tpls-1.1.2.min.js"/>"></script>
+<script src="<c:url value="resource/library/treeview/angular-ui-tree.min.js"/>"></script>
 
 <script src="<c:url value="/views/modules/abstract-controller.js" />" ></script>
